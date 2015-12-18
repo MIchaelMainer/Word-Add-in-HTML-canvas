@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <OfficeApp xmlns="http://schemas.microsoft.com/office/appforoffice/1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="TaskPaneApp">
+        <Id>20aed075-f6ac-4d05-97cc-e97ecc59d2f7</Id>
+        <Version>1.0</Version>
+        <ProviderName>Microsoft</ProviderName>
+        <DefaultLocale>EN-US</DefaultLocale>
+        <DisplayName DefaultValue="Canvas add-in for Word" />
+        <Description DefaultValue="See how you can use the Canvas API with Word add-ins." />
+        <Hosts>
+            <Host Name="Document" />
+        </Hosts>
+        <DefaultSettings>
+            <SourceLocation DefaultValue="http://127.0.0.1:8085" />
+        </DefaultSettings>
+        <Permissions>ReadWriteDocument</Permissions>
+    </OfficeApp>
