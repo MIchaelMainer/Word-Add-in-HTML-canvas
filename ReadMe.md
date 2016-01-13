@@ -1,0 +1,1 @@
+MUST have the reg key noted here : https://github.com/OfficeDev/Office-Add-in-Commands-Samples

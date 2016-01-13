@@ -1,0 +1,12 @@
+{
+    "app": {
+        "source": "www"
+    },
+    "server": {
+        "root": "www\\",
+        "host": "localhost",
+        "port": 8085,
+        "fallback": "www\\index.html",
+        "https": true
+    }
+}
