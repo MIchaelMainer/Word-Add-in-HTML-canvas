@@ -4,7 +4,7 @@
         <Version>1.0</Version>
         <ProviderName>Microsoft</ProviderName>
         <DefaultLocale>EN-US</DefaultLocale>
-        <DisplayName DefaultValue="Canvas add-in for Word" />
+        <DisplayName DefaultValue="Image callout add-in" />
         <Description DefaultValue="See how you can use the Canvas API with Word add-ins." />
         <!--Icon for your add-in. Used on installation screens and the add-ins dialog -->
         <IconUrl DefaultValue="https://127.0.0.1:8085/media/groupIcon1_default32.png" />

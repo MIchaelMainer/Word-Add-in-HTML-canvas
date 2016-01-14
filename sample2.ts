@@ -1,60 +1,48 @@
-/*
- * Copyright (c) Microsoft. All rights reserved. Licensed under the MIT license.
- * See LICENSE in the project root for license information.
- */
-(function () {
-    "use strict";
 
-    // The initialize function is run each time the page is loaded.
-    Office.initialize = function (reason) {
-        $(document).ready(function () {
+// TODO: find the typescript definition file location and add here.
+///<reference path="//appsforoffice.microsoft.com/lib/1.1/hosted/office.d.ts" />
+class App {
 
-            // Use this to check whether the new API is supported in the Word client.
-            if (Office.context.requirements.isSetSupported("WordApi", "1.2")) {
+    constructor() {
+        // The initialize function is run each time the page is loaded.
+        Office.initialize = function (reason) {
+            $(document).ready(function () {
 
-                console.log('This code is using Word 2016 or greater.');
+                // Use this to check whether the new API is supported in the Word client.
+                if (Office.context.requirements.isSetSupported("WordApi", "1.2")) {
 
-                // Setup the event handlers for UI.
-                $('#loadSelectedImage').click(loadSelectedImageHandler);
-                $('#insertImageAtSelection').click(insertImageHandler);
+                    console.log('This code is using Word 2016 or greater.');
 
-                // Scale the size of the canvas so that it scales  
-                // when a user resizes the add-in.
-                window.addEventListener('resize', resizeCanvas, false);
+                    // Setup the event handlers for UI.
+                    $('#loadSelectedImage').click(loadSelectedImageHandler);
+                    $('#insertImageAtSelection').click(insertImageHandler);
 
-                // Setup the canvas event listener(s).
-                initCanvas();
+                    // Scale the size of the canvas so that it scales  
+                    // when a user resizes the add-in.
+                    window.addEventListener('resize', resizeCanvas, false);
 
-            } else {
-                // Just letting you know that this code will not work with your version of Word.
-                console.log('This add-in requires Word 2016 or greater. Check your version of Word and the requirement set version.');
-            }
-        });
-    };
+                    // Setup the canvas event listener(s).
+                    initCanvas();
 
-
-    /*********************/
-    /* Globals           */
-    /*********************/
-
-    var _calloutEnabled = false; // we only want to add callout when an image is loaded.
-    var _calloutNumber; // set/reset when an image is loaded.
-    var _resizeRatio; // set when an image has been loaded in to the canvas.
-    var _windowWidth; // we are setting the canvas width to the window width.
-    var _image; // the image added to the canvas.
-
-    /*********************/
-    /* Canvas functions */
-    /*********************/
-
-    // Initialize the canvas with the click event. 
+                } else {
+                    // Just letting you know that this code will not work with your version of Word.
+                    console.log('This add-in requires Word 2016 or greater. Check your version of Word and the requirement set version.');
+                }
+            });
+        }
+    }
+    
+    private _calloutEnabled: boolean; // we only want to add callout when an image is loaded.
+    private _calloutNumber: number; //set/reset when an image is loaded.
+    private _resizeRatio: number; // set when an image has been loaded in to the canvas.
+    private _windowWidth: number; // we are setting the canvas width to the window width.
+    private _image; // the image added to the canvas.
+    
     function initCanvas() {
-
-        _windowWidth = window.innerWidth;
-
-        var canvas = document.getElementById('canvas');
-        var ctx = canvas.getContext("2d");
-
+            
+        var canvas: HTMLCanvasElement = document.getElementById('canvas');
+        var ctx: CanvasRenderingContext2D = canvas.getContext("2d");
+        
         // Add callouts when the user clicks in the canvas.
         ctx.canvas.addEventListener('click', function (event) {
 
@@ -71,13 +59,13 @@
                 var canvasBounds = canvas.getBoundingClientRect();
 
                 // Use the event coordinates, canvas boundaries, and the window width
-                // to get the coordinates where the callouts can be placed.
-                var height = _windowWidth * _resizeRatio;
-                var mouseX = (event.clientX - canvasBounds.left) * canvas.width / _windowWidth;
-                var mouseY = (event.clientY - canvasBounds.top) * canvas.height / height;
+                // to get the coordinates where the callouts are to be placed.
+                var height: number = _windowWidth * _resizeRatio;
+                var mouseX: number = (event.clientX - canvasBounds.left) * canvas.width / _windowWidth;
+                var mouseY: number = (event.clientY - canvasBounds.top) * canvas.height / height;
 
                 // Draw circle for the callout.
-                var radius = 12;
+                var radius: number = 12;
                 ctx.fillStyle = 'red';
                 ctx.beginPath();
                 ctx.arc(mouseX, mouseY, radius, 0, Math.PI * 2, true);
@@ -85,14 +73,18 @@
                 ctx.fill();
 
                 // Insert the callout number in the circle.
-                var width = ctx.measureText(_calloutNumber);
+//                var width: number = ctx.measureText(_calloutNumber);
                 ctx.font = 'bold 16px calabri ';
                 ctx.fillStyle = 'white';
                 ctx.textAlign = 'center';
-                ctx.fillText(_calloutNumber, mouseX, mouseY + (radius / 3)); // this last argument is approximately correct for placement.
+                ctx.fillText(_calloutNumber, mouseX, mouseY + (radius / 3)); 
+                // this last argument is approximately correct for placement.
             }
         });
     }
+
+// TODO: continue typescript learning here. 
+
 
     // Scale the canvas to fit the add-in window.
     function resizeCanvas() {
@@ -245,4 +237,7 @@
                 }
             });
     }
-})();
+
+}
+
+var app = new App();
