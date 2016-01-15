@@ -3,7 +3,7 @@
         <Id>20aed075-f6ac-4d05-97cc-e97ecc59d2f7</Id>
         <Version>1.0</Version>
         <ProviderName>Microsoft</ProviderName>
-        <DefaultLocale>EN-US</DefaultLocale>
+        <DefaultLocale>en-us</DefaultLocale>
         <DisplayName DefaultValue="Image callout add-in" />
         <Description DefaultValue="See how you can use the Canvas API with Word add-ins." />
         <!--Icon for your add-in. Used on installation screens and the add-ins dialog -->
@@ -19,7 +19,7 @@
         <!-- Add-in command declarations. See https://msdn.microsoft.com/EN-US/library/office/mt621545.aspx
         for more information about add-in commands. -->
         <VersionOverrides xmlns="http://schemas.microsoft.com/office/taskpaneappversionoverrides" xsi:type="VersionOverridesV1_0">
-            <Description resid="Word.Callout.Group.ToolTip.Desc" />
+            <Description resid="Group_ToolTip_Desc" />
             <Hosts>
                 <Host xsi:type="Document">
                     <!-- DesktopFormFactor declares that the functionality is for Word on the Windows desktop. -->
@@ -31,20 +31,20 @@
                             <OfficeTab id="TabDeveloper">
                                 <!-- This declares the group of buttons in the UI. -->
                                 <Group id="Group1">
-                                    <Label resid="Word.Callout.GroupTitle" />
+                                    <Label resid="GroupTitle" />
                                     <Icon>
                                         <bt:Image size="16" resid="groupIcon1_16x16" />
                                         <bt:Image size="32" resid="groupIcon1_32x32" />
                                         <bt:Image size="80" resid="groupIcon1_80x80" />
                                     </Icon>
-                                    <Tooltip resid="Word.Callout.Group.ToolTip.Desc" />
+                                    <Tooltip resid="Group_ToolTip_Desc" />
                                     <Control xsi:type="Button" id="Canvas.Button.Tab">
 
-                                        <Label resid="Word.Callout.Control.Label" />
-                                        <Tooltip resid="Word.Callout.Control.Tooltip" />
+                                        <Label resid="Control_Label" />
+                                        <Tooltip resid="Control_Tooltip" />
                                         <Supertip>
-                                            <Title resid="Word.Callout.Control.SuperTip.Label" />
-                                            <Description resid="Word.Callout.Control.SuperTip.Desc" />
+                                            <Title resid="Control_SuperTip_Label" />
+                                            <Description resid="Control_SuperTip_Desc" />
                                         </Supertip>
                                         <Icon>
                                             <bt:Image size="16" resid="icon1_16x16" />
@@ -52,7 +52,7 @@
                                             <bt:Image size="80" resid="icon1_80x80" />
                                         </Icon>
                                         <Action xsi:type="ShowTaskpane">
-                                            <SourceLocation resid="Word.Callout.Sample.Url" />
+                                            <SourceLocation resid="Sample_Url" />
                                         </Action>
                                     </Control>
                                 </Group>
@@ -63,11 +63,11 @@
                             <OfficeMenu id="ContextMenuText">
                                 <Control xsi:type="Button" id="Canvas.Button.Menu">
 
-                                    <Label resid="Word.Callout.Control.Label" />
-                                    <Tooltip resid="Word.Callout.Control.Tooltip" />
+                                    <Label resid="Control_Label" />
+                                    <Tooltip resid="Control_Tooltip" />
                                     <Supertip>
-                                        <Title resid="Word.Callout.Control.SuperTip.Label" />
-                                        <Description resid="Word.Callout.Control.SuperTip.Desc" />
+                                        <Title resid="Control_SuperTip_Label" />
+                                        <Description resid="Control_SuperTip_Desc" />
                                     </Supertip>
                                     <Icon>
                                         <bt:Image size="16" resid="icon1_16x16" />
@@ -75,7 +75,7 @@
                                         <bt:Image size="80" resid="icon1_80x80" />
                                     </Icon>
                                     <Action xsi:type="ShowTaskpane">
-                                        <SourceLocation resid="Word.Callout.Sample.Url" />
+                                        <SourceLocation resid="Sample_Url" />
                                     </Action>
                                 </Control>
                             </OfficeMenu>
@@ -96,7 +96,7 @@
                     <bt:Image id="icon1_80x80" DefaultValue="https://127.0.0.1:8085/media/icon_default80.png"></bt:Image>
                 </bt:Images>
                 <bt:Urls>
-                    <bt:Url id="Word.Callout.Sample.Url" DefaultValue="https://127.0.0.1:8085">
+                    <bt:Url id="Sample_Url" DefaultValue="https://127.0.0.1:8085">
                         <bt:Override Locale="ja-jp" Value="https://127.0.0.1:8085" />
                     </bt:Url>
                 </bt:Urls>
@@ -105,28 +105,27 @@
                      Read the documentation to make sure you use the correct string type.
                      https://msdn.microsoft.com/EN-US/library/office/mt621545.aspx -->
                 <bt:ShortStrings>
-                    <bt:String id="Word.Callout.GroupTitle" DefaultValue="Canvas add-in group title">
+                    <bt:String id="GroupTitle" DefaultValue="Canvas add-in group title">
                         <bt:Override Locale="ja-jp" Value="キャンバスアドイングループタイトル" />
                     </bt:String>
-                    <bt:String id="Word.Callout.Control.Label" DefaultValue="Callout add-in">
+                    <bt:String id="Control_Label" DefaultValue="Callout add-in">
                         <bt:Override Locale="ja-jp" Value="吹き出しは、アドイン" />
                     </bt:String>
-                    <bt:String id="Word.Callout.Control.Tooltip" DefaultValue="Canvas add-in3">
+                    <bt:String id="Control_Tooltip" DefaultValue="Canvas add-in3">
                         <bt:Override Locale="ja-jp" Value="キャンバスは、アドオン立方インチ" />
                     </bt:String>
-                    <bt:String id="Word.Callout.Control.SuperTip.Label" DefaultValue="Callout add-in supertip">
+                    <bt:String id="Control_SuperTip_Label" DefaultValue="Callout add-in supertip">
                         <bt:Override Locale="ja-jp" Value="吹き出しは、アドインsupertip" />
                     </bt:String>
                 </bt:ShortStrings>
                 <bt:LongStrings>
-                    <bt:String id="Word.Callout.Group.ToolTip.Desc" DefaultValue="This add-in demonstrates how you can create an image editing add-in that uses the HTML Canvas API.">
+                    <bt:String id="Group_ToolTip_Desc" DefaultValue="This add-in demonstrates how you can create an image editing add-in that uses the HTML Canvas API.">
                         <bt:Override Locale="ja-jp" Value="このアドインを使用すると、画像編集アドインそれをHTMLキャンバスAPIを使用して作成する方法を示します。" />
                     </bt:String>
-                    <bt:String id="Word.Callout.Control.SuperTip.Desc" DefaultValue="Open the canvas add-in in the task pane.">
+                    <bt:String id="Control_SuperTip_Desc" DefaultValue="Open the canvas add-in in the task pane.">
                         <bt:Override Locale="ja-jp" Value="キャンバスアドイン作業ウィンドウを開きます。" />
                     </bt:String>
                 </bt:LongStrings>
             </Resources>
         </VersionOverrides>
-
     </OfficeApp>

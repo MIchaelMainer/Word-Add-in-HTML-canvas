@@ -1,6 +1,11 @@
 {
+    "lib": {
+        "source": "node_modules",
+        "dest": "www\\lib"
+    },
     "app": {
-        "source": "www"
+        "source": "src",
+        "dest": "www"
     },
     "server": {
         "root": "www\\",
