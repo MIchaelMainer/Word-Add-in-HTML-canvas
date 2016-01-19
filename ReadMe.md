@@ -1,3 +1,5 @@
+Deployment branch is only to be used for deploying to Azure.
+
 MUST have the reg key noted here : https://github.com/OfficeDev/Office-Add-in-Commands-Samples
 
 TODO: note that add-in commands won't work on the Mac or iPad.
