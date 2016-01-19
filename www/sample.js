@@ -87,6 +87,8 @@ var App = (function () {
     // whether you have an image.
     App.prototype.loadImageIntoCanvas = function (base64EncodedImage) {
         var _this = this;
+        // Callouts should only be added once the image is loaded into canvas.
+        this._calloutEnabled = false;
         // Create an image and load it onto the canvas, set the canvas to the image
         // dimensions, and draw it on the canvas.
         this._image = new Image();

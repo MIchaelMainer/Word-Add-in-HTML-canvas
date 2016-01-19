@@ -4,7 +4,10 @@ TODO: note that add-in commands won't work on the Mac or iPad.
 TODO: Create my own map.
 
 
-
+tsd install
+npm install
+gulp copy:libs
+gulp
 
 
 For Mac (note that the add-in commands won't work)
