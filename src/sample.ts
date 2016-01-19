@@ -23,7 +23,7 @@ class App {
 
                     // Scale the size of the canvas so that it scales  
                     // when a user resizes the add-in.
-                    window.addEventListener('resize', this.resizeImage.bind(this), false);
+                    window.addEventListener('resize', this.resizeCanvas.bind(this), false);
             
                     // Setup the canvas event listener(s).
                     this.initCanvas();
@@ -98,12 +98,10 @@ class App {
         });
     }
 
-    resizeImage(): void {
+    resizeCanvas(): void {
     
         // Canvas must fit width of add-in.
         this._windowWidth = window.innerWidth;
-
-
 
         // Set the resize ratio only if it hasn't already been captured, 
         // and only if there is an image loaded in the add-in.
@@ -121,7 +119,7 @@ class App {
 
     // Loads the image into the HTML canvas. loadSelectedImageHandler() checks 
     // whether you have an image.
-    loadImageIntoCanvas(base64EncodedImage) {
+    loadImageIntoCanvas(base64EncodedImage): void {
 
         // Callouts should only be added once the image is loaded into canvas.
         this._calloutEnabled = false;
@@ -150,7 +148,7 @@ class App {
         this._image.src = "data:image/png;base64," + base64EncodedImage.value;
 
         // Make the canvas scale to the window.
-        this.resizeImage();
+        this.resizeCanvas();
     }
 
     /*********************/
@@ -159,7 +157,7 @@ class App {
 
     // Load the the selected image from Word into the add-in. 
     // This assumes that a single image was selected.
-    loadSelectedImageHandler() {
+    loadSelectedImageHandler(): void {
         Word.run((context) => {
 
             // Create a proxy object for the range that is assumed to contain an image.
@@ -202,7 +200,7 @@ class App {
 
     // Insert the image in the canvas into the Word document.
     // Insert the callout placeholders in to the Word document.  
-    insertImageHandler() {
+    insertImageHandler(): void {
 
         // Only insert the contents of the canvas if we an image in it.
         if (this._image) {
