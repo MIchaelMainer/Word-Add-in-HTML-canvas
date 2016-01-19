@@ -12,6 +12,6 @@
         "host": "localhost",
         "port": 8085,
         "fallback": "www\\index.html",
-        "https": true
+        "https": true 
     }
 }
