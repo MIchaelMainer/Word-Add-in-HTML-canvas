@@ -102,12 +102,12 @@ var App = (function () {
             _this._calloutNumber = 0;
             // Enable adding callouts to the canvas.
             _this._calloutEnabled = true;
+            // Make the canvas scale to the window.
+            _this.resizeCanvas();
         };
         // ASSUMPTION: we are assuming only png files. You will need to determine file type.
         // Load the image we got from Word.
         this._image.src = "data:image/png;base64," + base64EncodedImage.value;
-        // Make the canvas scale to the window.
-        this.resizeCanvas();
     };
     /*********************/
     /* Word JS functions */
