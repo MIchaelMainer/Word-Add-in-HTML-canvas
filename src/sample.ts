@@ -227,7 +227,7 @@ class App {
 
             Word.run((context) => {
 
-                // Create a proxy object for the range is the current selection.
+                // Create a proxy object for the range at the current selection.
                 var imageRange = context.document.getSelection() as Word.Range;
 
                 // Load the selected range.
@@ -247,7 +247,7 @@ class App {
                         // Queue an indefinite number of commands to insert paragraphs 
                         // based on the number of callouts added to the image. 
                         if (this._calloutNumber > 0) {
-                            var lastParagraph = lastParagraph.insertParagraph('Here are your callout descriptions:', Word.InsertLocation.after) as Word.Paragraph;
+                            var lastParagraph = insertedImage.insertParagraph('Here are your callout descriptions:', Word.InsertLocation.after) as Word.Paragraph;
 
                             for (var i = 0; i < this._calloutNumber; i++) {
                                 lastParagraph = lastParagraph.insertParagraph((i + 1) + ') [enter callout description].', Word.InsertLocation.after);

@@ -64,7 +64,7 @@
                         <!-- Declares a context menu that will open the add-in. -->
                         <ExtensionPoint xsi:type="ContextMenu">
                             <OfficeMenu id="ContextMenuText">
-                                <Control xsi:type="Button" id="Canvas.Button.Menu">
+                                <Control xsi:type="Button" id="CanvasButtonMenu">
 
                                     <Label resid="Control_Label" />
                                     <Tooltip resid="Control_Tooltip" />
@@ -77,8 +77,8 @@
                                         <bt:Image size="32" resid="icon1_32x32" />
                                         <bt:Image size="80" resid="icon1_80x80" />
                                     </Icon>
-                                    <Action xsi:type="ShowTaskpane">
-                                        <SourceLocation resid="Sample_Url" />
+                                    <Action xsi:type="ExecuteFunction">
+                                        <FunctionName>contextMenuInsertImg</FunctionName>
                                     </Action>
                                 </Control>
                             </OfficeMenu>
