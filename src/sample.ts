@@ -96,6 +96,9 @@ class App {
                 ctx.fillText(this._calloutNumber.toString(), mouseX, mouseY + (radius / 3)); // this last argument is approximately correct for placement.
             }
         });
+
+        
+        
     }
 
     resizeCanvas(): void {
@@ -141,14 +144,16 @@ class App {
 
             // Enable adding callouts to the canvas.
             this._calloutEnabled = true;
+            
+            // Make the canvas scale to the window.
+            this.resizeCanvas();
         };
 
         // ASSUMPTION: we are assuming only png files. You will need to determine file type.
         // Load the image we got from Word.
         this._image.src = "data:image/png;base64," + base64EncodedImage.value;
 
-        // Make the canvas scale to the window.
-        this.resizeCanvas();
+
     }
 
     /*********************/
