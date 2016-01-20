@@ -4,7 +4,7 @@
         <Version>1.0</Version>
         <ProviderName>Microsoft</ProviderName>
         <DefaultLocale>en-us</DefaultLocale>
-        <DisplayName DefaultValue="Image callout add-in" />
+        <DisplayName DefaultValue="(local) Image callout add-in" />
         <Description DefaultValue="See how you can use the Canvas API with Word add-ins." />
         <!--Icon for your add-in. Used on installation screens and the add-ins dialog -->
         <IconUrl DefaultValue="https://127.0.0.1:8085/media/groupIcon1_default32.png" />
@@ -24,6 +24,9 @@
                 <Host xsi:type="Document">
                     <!-- DesktopFormFactor declares that the functionality is for Word on the Windows desktop. -->
                     <DesktopFormFactor>
+                        <FunctionFile resid="InsertImageMenu_Url"/>
+
+                    
                         <!-- PrimaryCommandSurface declares that this add-in 
                              command will be used from the ribbon in Office. -->
                         <ExtensionPoint xsi:type="PrimaryCommandSurface">
@@ -99,6 +102,9 @@
                     <bt:Url id="Sample_Url" DefaultValue="https://127.0.0.1:8085">
                         <bt:Override Locale="ja-jp" Value="https://127.0.0.1:8085" />
                     </bt:Url>
+                    <bt:Url id="InsertImageMenu_Url" DefaultValue="https://127.0.0.1:8085/insertimage.html">
+                        <bt:Override Locale="ja-jp" Value="https://127.0.0.1:8085/insertimage.html" />
+                    </bt:Url>
                 </bt:Urls>
                 <!-- Be careful about mixing up what can be a short and a long string. 
                      A common issue with add-in commands is mixing short and long strings.
@@ -108,7 +114,7 @@
                     <bt:String id="GroupTitle" DefaultValue="Canvas add-in group title">
                         <bt:Override Locale="ja-jp" Value="キャンバスアドイングループタイトル" />
                     </bt:String>
-                    <bt:String id="Control_Label" DefaultValue="Callout add-in">
+                    <bt:String id="Control_Label" DefaultValue="(local) Callout add-in">
                         <bt:Override Locale="ja-jp" Value="吹き出しは、アドイン" />
                     </bt:String>
                     <bt:String id="Control_Tooltip" DefaultValue="Canvas add-in3">
@@ -119,7 +125,7 @@
                     </bt:String>
                 </bt:ShortStrings>
                 <bt:LongStrings>
-                    <bt:String id="Group_ToolTip_Desc" DefaultValue="This add-in demonstrates how you can create an image editing add-in that uses the HTML Canvas API.">
+                    <bt:String id="Group_ToolTip_Desc" DefaultValue="(local) This add-in demonstrates how you can create an image editing add-in that uses the HTML Canvas API.">
                         <bt:Override Locale="ja-jp" Value="このアドインを使用すると、画像編集アドインそれをHTMLキャンバスAPIを使用して作成する方法を示します。" />
                     </bt:String>
                     <bt:String id="Control_SuperTip_Desc" DefaultValue="Open the canvas add-in in the task pane.">

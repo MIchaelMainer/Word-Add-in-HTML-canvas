@@ -2,9 +2,9 @@
  * Copyright (c) Microsoft. All rights reserved. Licensed under the MIT license.
  * See LICENSE in the project root for license information.
  */
-declare var Office: any;
-declare var OfficeExtension: any;
-declare var Word: any;
+// declare var Office: any;
+// declare var OfficeExtension: any;
+// declare var Word: any;
 
 class App {
 
@@ -13,7 +13,7 @@ class App {
         Office.initialize = (reason) => {
             $(document).ready(() => {
                 // Use this to check whether the new API is supported in the Word client.
-                if (Office.context.requirements.isSetSupported("WordApi", "1.2")) {
+                if (Office.context.requirements.isSetSupported("WordApi", 1.2)) {
 
                     console.log('This code is using Word 2016 or greater.');
                     
@@ -50,7 +50,10 @@ class App {
     /* Canvas functions */
     /*********************/
 
-    // Initialize the canvas with the click event. 
+     
+    /**
+    * Initialize the canvas with the click event. Click event inserts callouts into the canvas image. 
+    */
     initCanvas(): void {
 
         this._windowWidth = window.innerWidth;
@@ -96,11 +99,11 @@ class App {
                 ctx.fillText(this._calloutNumber.toString(), mouseX, mouseY + (radius / 3)); // this last argument is approximately correct for placement.
             }
         });
-
-        
-        
     }
 
+    /**
+    * Changes the canvas size according to the window width and the image aspect ratio. 
+    */    
     resizeCanvas(): void {
     
         // Canvas must fit width of add-in.
@@ -120,8 +123,11 @@ class App {
         }
     }
 
-    // Loads the image into the HTML canvas. loadSelectedImageHandler() checks 
-    // whether you have an image.
+
+    /**
+     * Loads the image into the HTML canvas. loadSelectedImageHandler() checks whether you have an image.
+     * @param base64EncodedImage The image to load into the canvas.
+     */
     loadImageIntoCanvas(base64EncodedImage): void {
 
         // Callouts should only be added once the image is loaded into canvas.
@@ -152,21 +158,20 @@ class App {
         // ASSUMPTION: we are assuming only png files. You will need to determine file type.
         // Load the image we got from Word.
         this._image.src = "data:image/png;base64," + base64EncodedImage.value;
-
-
     }
 
     /*********************/
     /* Word JS functions */
     /*********************/
 
-    // Load the the selected image from Word into the add-in. 
-    // This assumes that a single image was selected.
+    /**
+    * Load the the selected image from Word into the add-in. This assumes that a single image was selected. 
+    */
     loadSelectedImageHandler(): void {
         Word.run((context) => {
 
             // Create a proxy object for the range that is assumed to contain an image.
-            var imageRange = context.document.getSelection();
+            var imageRange = context.document.getSelection() as Word.Range;
 
             // Load the selected range.
             context.load(imageRange, 'inlinePictures');
@@ -202,9 +207,10 @@ class App {
                 }
             });
     }
-
-    // Insert the image in the canvas into the Word document.
-    // Insert the callout placeholders in to the Word document.  
+  
+    /**
+    * Insert the contents of the canvas into the Word document. 
+    */
     insertImageHandler(): void {
 
         // Only insert the contents of the canvas if we an image in it.
@@ -222,7 +228,7 @@ class App {
             Word.run((context) => {
 
                 // Create a proxy object for the range is the current selection.
-                var imageRange = context.document.getSelection();
+                var imageRange = context.document.getSelection() as Word.Range;
 
                 // Load the selected range.
                 context.load(imageRange, 'text');
@@ -233,18 +239,18 @@ class App {
                     .then(() => {
 
                         // Queue a command to insert the image into the document.
-                        var lastRange = imageRange.insertInlinePictureFromBase64(base64ImgString, Word.InsertLocation.replace);
+                        var insertedImage = imageRange.insertInlinePictureFromBase64(base64ImgString, Word.InsertLocation.replace) as Word.InlinePicture;
 
                         // Queue a command to navigate the UI to the insert picture.
-                        lastRange.select();
+                        insertedImage.select();
 
                         // Queue an indefinite number of commands to insert paragraphs 
                         // based on the number of callouts added to the image. 
                         if (this._calloutNumber > 0) {
-                            lastRange = lastRange.insertParagraph('Here are your callout descriptions:', Word.InsertLocation.after);
+                            var lastParagraph = lastParagraph.insertParagraph('Here are your callout descriptions:', Word.InsertLocation.after) as Word.Paragraph;
 
                             for (var i = 0; i < this._calloutNumber; i++) {
-                                lastRange = lastRange.insertParagraph((i + 1) + ') [enter callout description].', Word.InsertLocation.after);
+                                lastParagraph = lastParagraph.insertParagraph((i + 1) + ') [enter callout description].', Word.InsertLocation.after);
                             }
                         }
                     })
