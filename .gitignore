@@ -51,6 +51,7 @@ $RECYCLE.BIN/
 # Ignore the following folders
 node_modules/**
 bower_components/**
+www/**
 platforms/**
 typings/**
 obj/**

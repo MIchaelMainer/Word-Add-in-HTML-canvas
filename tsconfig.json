@@ -26,6 +26,7 @@
     },
     "files": [
         "./typings/tsd.d.ts",
+        "./src/insert_temp.ts",
         "./src/sample.ts"
     ]
 }
