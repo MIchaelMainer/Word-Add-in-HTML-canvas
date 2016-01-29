@@ -7,6 +7,8 @@ var gulp = require('gulp'),
     del = require('del'),
 
     sass = require('gulp-sass'),
+    
+    // debug = require('gulp-debug'),
 
     typescript = require('gulp-typescript'),
     sourcemaps = require('gulp-sourcemaps'),
@@ -107,6 +109,8 @@ gulp.task('default', ['compile', 'watch'], function () {
         host: config.server.host,
         port: config.server.port,
         https: config.server.https,
-        livereload: true
+        livereload: true,
+        debug: true
     });
+       
 });

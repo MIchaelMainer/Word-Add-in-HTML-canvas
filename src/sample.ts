@@ -228,7 +228,7 @@ class App {
             Word.run((context) => {
 
                 // Create a proxy object for the range at the current selection.
-                var imageRange = context.document.getSelection() as Word.Range;
+                var imageRange = context.document.getSelection();
 
                 // Load the selected range.
                 context.load(imageRange, 'text');

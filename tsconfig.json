@@ -25,10 +25,8 @@
         "rewriteTsconfig": true
     },
     "files": [
-        "./typings/jquery/jquery.d.ts",
-        "./typings/office-js/office-js.d.ts",
         "./typings/tsd.d.ts",
-        "./src/insert_temp.ts",
+        "./src/insert.ts",
         "./src/sample.ts"
     ]
 }

@@ -24,7 +24,7 @@
                 <Host xsi:type="Document">
                     <!-- DesktopFormFactor declares that the functionality is for Word on the Windows desktop. -->
                     <DesktopFormFactor>
-                        <FunctionFile resid="InsertImageMenu_Url"/>
+                        <FunctionFile resid="InsertImageMenuUrl"/>
 
                     
                         <!-- PrimaryCommandSurface declares that this add-in 
@@ -40,11 +40,11 @@
                                         <bt:Image size="32" resid="groupIcon1_32x32" />
                                         <bt:Image size="80" resid="groupIcon1_80x80" />
                                     </Icon>
-                                    <Tooltip resid="Group_ToolTip_Desc" />
+                                    <!--<Tooltip resid="Group_ToolTip_Desc" />-->
                                     <Control xsi:type="Button" id="Canvas.Button.Tab">
 
                                         <Label resid="Control_Label" />
-                                        <Tooltip resid="Control_Tooltip" />
+                                        <!--<Tooltip resid="Control_Tooltip" />-->
                                         <Supertip>
                                             <Title resid="Control_SuperTip_Label" />
                                             <Description resid="Control_SuperTip_Desc" />
@@ -58,6 +58,23 @@
                                             <SourceLocation resid="Sample_Url" />
                                         </Action>
                                     </Control>
+                                    <Control xsi:type="Button" id="CanvasButtonMenu2">
+
+                                        <Label resid="Control_Label" />
+                                        <!--<Tooltip resid="Control_Tooltip" />-->
+                                        <Supertip>
+                                            <Title resid="Control_SuperTip_Label" />
+                                            <Description resid="Control_SuperTip_Desc" />
+                                        </Supertip>
+                                        <Icon>
+                                            <bt:Image size="16" resid="icon1_16x16" />
+                                            <bt:Image size="32" resid="icon1_32x32" />
+                                            <bt:Image size="80" resid="icon1_80x80" />
+                                        </Icon>
+                                        <Action xsi:type="ExecuteFunction">
+                                            <FunctionName>writeText</FunctionName>
+                                        </Action>
+                                    </Control>
                                 </Group>
                             </OfficeTab>
                         </ExtensionPoint>
@@ -67,7 +84,7 @@
                                 <Control xsi:type="Button" id="CanvasButtonMenu">
 
                                     <Label resid="Control_Label" />
-                                    <Tooltip resid="Control_Tooltip" />
+                                    <!--<Tooltip resid="Control_Tooltip" />-->
                                     <Supertip>
                                         <Title resid="Control_SuperTip_Label" />
                                         <Description resid="Control_SuperTip_Desc" />
@@ -78,7 +95,7 @@
                                         <bt:Image size="80" resid="icon1_80x80" />
                                     </Icon>
                                     <Action xsi:type="ExecuteFunction">
-                                        <FunctionName>contextMenuInsertImg</FunctionName>
+                                        <FunctionName>writeText</FunctionName>
                                     </Action>
                                 </Control>
                             </OfficeMenu>
@@ -102,8 +119,8 @@
                     <bt:Url id="Sample_Url" DefaultValue="https://127.0.0.1:8085">
                         <bt:Override Locale="ja-jp" Value="https://127.0.0.1:8085" />
                     </bt:Url>
-                    <bt:Url id="InsertImageMenu_Url" DefaultValue="https://127.0.0.1:8085/insertimage.html">
-                        <bt:Override Locale="ja-jp" Value="https://127.0.0.1:8085/insertimage.html" />
+                    <bt:Url id="InsertImageMenuUrl" DefaultValue="https://127.0.0.1:8085/insertimage.html">
+                
                     </bt:Url>
                 </bt:Urls>
                 <!-- Be careful about mixing up what can be a short and a long string. 
@@ -114,7 +131,7 @@
                     <bt:String id="GroupTitle" DefaultValue="Canvas add-in group title">
                         <bt:Override Locale="ja-jp" Value="キャンバスアドイングループタイトル" />
                     </bt:String>
-                    <bt:String id="Control_Label" DefaultValue="(local) Callout add-in">
+                    <bt:String id="Control_Label" DefaultValue="(local2) Callout add-in">
                         <bt:Override Locale="ja-jp" Value="吹き出しは、アドイン" />
                     </bt:String>
                     <bt:String id="Control_Tooltip" DefaultValue="Canvas add-in3">
