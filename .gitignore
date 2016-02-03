@@ -60,6 +60,7 @@ bin/**
 .vs/
 
 # Ignore the cert and key file
-server.crt
-server.key
-ss_certgen.sh
+*.crt
+*.key
+*.csr
+*.p12

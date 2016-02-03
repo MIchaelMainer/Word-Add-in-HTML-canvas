@@ -8,7 +8,7 @@ module ContextMenuButton {
             // https://github.com/OfficeDev/Office-Add-in-Commands-Samples/blob/66b137b536319294daa72b45888a46da906e2c81/Excel/Webapp/ODSampleDataWeb/Scripts/App/UX.ts
             // https://github.com/OfficeDev/Office-Add-in-Commands-Samples/blob/66b137b536319294daa72b45888a46da906e2c81/Excel/Webapp/ODSampleDataWeb/Scripts/App/App.ts
             
-                            Word.run(function (context) {
+                    Word.run(function (context) {
                     // Create a proxy object for the range at the current selection.
                     var imageRange = context.document.getSelection();
                             

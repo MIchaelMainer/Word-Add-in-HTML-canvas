@@ -7,12 +7,12 @@
         <DisplayName DefaultValue="(local) Image callout add-in" />
         <Description DefaultValue="See how you can use the Canvas API with Word add-ins." />
         <!--Icon for your add-in. Used on installation screens and the add-ins dialog -->
-        <IconUrl DefaultValue="https://127.0.0.1:8085/media/groupIcon1_default32.png" />
+        <IconUrl DefaultValue="https://localhost:8085/media/groupIcon1_default32.png" />
         <Hosts>
             <Host Name="Document" />
         </Hosts>
         <DefaultSettings>
-            <SourceLocation DefaultValue="https://127.0.0.1:8085" />
+            <SourceLocation DefaultValue="https://localhost:8085" />
         </DefaultSettings>
         <Permissions>ReadWriteDocument</Permissions>
 
@@ -58,10 +58,10 @@
                                             <SourceLocation resid="Sample_Url" />
                                         </Action>
                                     </Control>
-                                    <Control xsi:type="Button" id="CanvasButtonMenu2">
+                                    <!--<Control xsi:type="Button" id="CanvasButtonMenu2">
 
                                         <Label resid="Control_Label" />
-                                        <!--<Tooltip resid="Control_Tooltip" />-->
+                                        
                                         <Supertip>
                                             <Title resid="Control_SuperTip_Label" />
                                             <Description resid="Control_SuperTip_Desc" />
@@ -74,7 +74,7 @@
                                         <Action xsi:type="ExecuteFunction">
                                             <FunctionName>writeText</FunctionName>
                                         </Action>
-                                    </Control>
+                                    </Control>-->
                                 </Group>
                             </OfficeTab>
                         </ExtensionPoint>
@@ -108,18 +108,18 @@
             <Resources>
                 <bt:Images>
                     <!-- Image resource URLs. These must be located at HTTPS endpoints.-->
-                    <bt:Image id="groupIcon1_16x16" DefaultValue="https://127.0.0.1:8085/media/groupIcon1_default16.png"></bt:Image>
-                    <bt:Image id="groupIcon1_32x32" DefaultValue="https://127.0.0.1:8085/media/groupIcon1_default32.png"></bt:Image>
-                    <bt:Image id="groupIcon1_80x80" DefaultValue="https://127.0.0.1:8085/media/groupIcon1_default80.png"></bt:Image>
-                    <bt:Image id="icon1_16x16" DefaultValue="https://127.0.0.1:8085/media/icon_default16.png"></bt:Image>
-                    <bt:Image id="icon1_32x32" DefaultValue="https://127.0.0.1:8085/media/icon_default32.png"></bt:Image>
-                    <bt:Image id="icon1_80x80" DefaultValue="https://127.0.0.1:8085/media/icon_default80.png"></bt:Image>
+                    <bt:Image id="groupIcon1_16x16" DefaultValue="https://localhost:8085/media/groupIcon1_default16.png"></bt:Image>
+                    <bt:Image id="groupIcon1_32x32" DefaultValue="https://localhost:8085/media/groupIcon1_default32.png"></bt:Image>
+                    <bt:Image id="groupIcon1_80x80" DefaultValue="https://localhost:8085/media/groupIcon1_default80.png"></bt:Image>
+                    <bt:Image id="icon1_16x16" DefaultValue="https://localhost:8085/media/icon_default16.png"></bt:Image>
+                    <bt:Image id="icon1_32x32" DefaultValue="https://localhost:8085/media/icon_default32.png"></bt:Image>
+                    <bt:Image id="icon1_80x80" DefaultValue="https://localhost:8085/media/icon_default80.png"></bt:Image>
                 </bt:Images>
                 <bt:Urls>
-                    <bt:Url id="Sample_Url" DefaultValue="https://127.0.0.1:8085">
-                        <bt:Override Locale="ja-jp" Value="https://127.0.0.1:8085" />
+                    <bt:Url id="Sample_Url" DefaultValue="https://localhost:8085">
+                        <bt:Override Locale="ja-jp" Value="https://localhost:8085" />
                     </bt:Url>
-                    <bt:Url id="InsertImageMenuUrl" DefaultValue="https://127.0.0.1:8085/insertimage.html">
+                    <bt:Url id="InsertImageMenuUrl" DefaultValue="https://localhost:8085/insertimage.html">
                 
                     </bt:Url>
                 </bt:Urls>

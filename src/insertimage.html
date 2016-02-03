@@ -14,10 +14,10 @@
 
 
     <script src="lib/jQuery.js"></script>
-    <!--<script src="https://appsforoffice.microsoft.com/lib/1.1/hosted/office.js" type="text/javascript"></script>-->
+    <script src="https://appsforoffice.microsoft.com/lib/1.1/hosted/office.js" type="text/javascript"></script>
     
         <!--Notice that during the preview, Office.js must be referenced from this interim location-->
-    <script src="https://officejscommands.azurewebsites.net/office.js" type="text/javascript"></script>
+    <!--<script src="https://officejscommands.azurewebsites.net/office.js" type="text/javascript"></script>-->
     
     <!--<script src="insert.js" type="text/javascript"></script>-->
     
@@ -47,6 +47,53 @@
                     }
                 });
            //Required, call event.completed to let the platform know you are done processing. 
+           
+               // From http://stackoverflow.com/questions/934012/get-image-data-in-javascript, Matthew Crumley
+            // Create an empty canvas element
+    //          var canvas = document.createElement("canvas");
+    //         canvas.width = img.width;
+    //         canvas.height = img.height;
+            
+    //         // Copy the image contents to the canvas.    
+    //         var myImage = document.getElementById('imageToInsert');
+    //              var ctx = canvas.getContext("2d");
+    // ctx.drawImage(myImage, 0, 0)   
+            
+    //            // Get the data-URL formatted image
+    //             // Firefox supports PNG and JPEG. You could check img.src to
+    //             // guess the original format, but be aware the using "image/jpg"
+    //             // will re-encode the image.
+    //             var dataURL = canvas.toDataURL("image/png");    
+                
+    //             var base64Image = dataURL.replace(/^data:image\/(png|jpg);base64,/, "");
+                
+                // Word.run(function (context) {
+                //     // Create a proxy object for the range at the current selection.
+                //     var imageRange = context.document.getSelection();
+                            
+                //     // Load the selected range.
+                //     context.load(imageRange, 'text');
+                
+                //     // Synchronize the document state by executing the queued commands, 
+                //     // and return a promise to indicate task completion.
+                //     return context.sync()
+                //         .then(function () {
+                //             // Queue a command to insert the image into the document.
+                //             var insertedImage = imageRange.insertInlinePictureFromBase64(base64Image, Word.InsertLocation.replace);
+                                    
+                //             // Queue a command to navigate the UI to the insert picture.
+                //             insertedImage.select();
+                //         })
+                //     // Synchronize the document state by executing the queued commands.
+                //         .then(context.sync);
+                // })
+                //     .catch(function(error) {
+                //         console.log('Error: ' + JSON.stringify(error));
+                //         if (error instanceof OfficeExtension.Error) {
+                //             console.log('Debug info: ' + JSON.stringify(error.debugInfo));
+                //         }
+                //     });
+           
 	   event.completed();
         }
 

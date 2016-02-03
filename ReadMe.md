@@ -46,7 +46,50 @@ gulp copy:libs
 gulp
 
 
-For Mac (note that the add-in commands won't work)
+For Mac (note that the add-in commands won't work -- update the manifest to point at the )
 1.	Create a folder called “wef” in Users/<username>/Library/Containers/com.microsoft.word/Data/Documents/
 2.	Put the developer manifest in the wef folder (Users/<username>/Library/Containers/com.microsoft.word/Data/Documents/wef)
 3.	Open word application on Mac and click on inset->”my add-ins” drop down.
+
+OpenSSL
+
+Install OpenSSL if you don't already have it.
+https://wiki.openssl.org/index.php/Binaries
+
+http://blog.didierstevens.com/2015/03/30/howto-make-your-own-cert-with-openssl-on-windows/
+
+1) Open cmd window, Set these environment variables
+set RANDFILE=c:\demo\.rnd
+set OPENSSL_CONF=C:\OpenSSL-Win32\bin\openssl.cfg
+
+2) Start OpenSSL by typing 
+    ```c:\OpenSSL-Win32\bin\openssl.exe```
+
+3) Create RSA key for the root CA and store it in ca.key:
+    ```genrsa -out ca.key 4096```
+
+4) create our self-signed root CA certificate ca.crt; you’ll need to provide an identity for your root CA:
+    ```req -new -x509 -days 1826 -key ca.key -out ca.crt```
+    
+5) create our subordinate CA that will be used for the actual signing. First, generate the key:
+
+    ```genrsa -out server.key 4096```
+    
+6) Then, request a certificate for this subordinate CA:
+
+    ``` req -new -key server.key -out server.csr```
+    
+7) process the request for the subordinate CA certificate and get it signed by the root CA.
+
+    ``` x509 -req -days 730 -in server.csr -CA ca.crt -CAkey ca.key -set_serial 01 -out server.crt```
+
+7.5) To use this subordinate CA key for Authenticode signatures with Microsoft’s signtool, you’ll have to package the keys and certs in a PKCS12 file:    
+
+    ```pkcs12 -export -out server.p12 -inkey server.key -in server.crt -chain -CAfile ca.crt```
+
+8) Install server.crt into the Trusted Root Certificate Authority store.
+
+
+
+
+I put the xsd files in the VS xsd store. 

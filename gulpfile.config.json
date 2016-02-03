@@ -12,6 +12,9 @@
         "host": "localhost",
         "port": 8085,
         "fallback": "www\\index.html",
-        "https": true 
+        "serverkey": "/users/mmainer/documents/repos/Word-Add-in-HTML-canvas/server.key",
+        "servercert": "/users/mmainer/documents/repos/Word-Add-in-HTML-canvas/server.crt",
+        "cacert": "/users/mmainer/documents/repos/Word-Add-in-HTML-canvas/ca.crt",
+        "passphrase": "moosh"
     }
 }

@@ -7,6 +7,8 @@ var gulp = require('gulp'),
     del = require('del'),
 
     sass = require('gulp-sass'),
+
+    fs = require('fs'),
     
     // debug = require('gulp-debug'),
 
@@ -108,8 +110,13 @@ gulp.task('default', ['compile', 'watch'], function () {
         root: config.server.root,
         host: config.server.host,
         port: config.server.port,
-        https: config.server.https,
-        livereload: true,
+        https: {
+            key: fs.readFileSync(config.server.serverkey),
+            cert: fs.readFileSync(config.server.servercert),
+            ca: fs.readFileSync(config.server.cacert),
+            passphrase: config.server.passphrase
+        },
+        livereload: false,
         debug: true
     });
        
