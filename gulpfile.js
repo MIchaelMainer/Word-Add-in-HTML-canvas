@@ -1,5 +1,12 @@
-/// Gulp configuration for Typescript, SASS and Live Reload
+/*
+Copyright (c) Microsoft. All rights reserved. Licensed under the MIT license.
+See LICENSE in the project root for license information
+*/
 
+/* 
+Gulp task configuration for transcompiling TypeScript, interpreting SASS into CSS, 
+reading certs, live reload, and copy files for serving up for the add-in. 
+*/ 
 'use strict';
 
 var gulp = require('gulp'),
@@ -10,8 +17,6 @@ var gulp = require('gulp'),
 
     fs = require('fs'),
     
-    // debug = require('gulp-debug'),
-
     typescript = require('gulp-typescript'),
     sourcemaps = require('gulp-sourcemaps'),
     tsConfigGlob = require('tsconfig-glob'),
@@ -25,13 +30,16 @@ var gulp = require('gulp'),
         this.emit('end');
     };
 
+// Create a TypeScript project. 
 var tsProject = typescript.createProject('./tsconfig.json', {
     sortdest: true
 });
 
+// Deletes all of the files in www directory. See gulpfile.config.json.
 gulp.task('clean', function (done) {
     return del(config.server.root, done);
 });
+
 
 gulp.task('ref', function () {
     return tsConfigGlob();
