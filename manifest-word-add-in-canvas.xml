@@ -63,6 +63,23 @@
                                             <SourceLocation resid="Sample_Url" />
                                         </Action>
                                     </Control>
+             			    <Control xsi:type="Button" id="CanvasButtonMenu2">
+
+                                        <Label resid="Ctx_Control_Label" />
+                                        <!--<Tooltip resid="Control_Tooltip" />-->
+                                        <Supertip>
+                                            <Title resid="Control_SuperTip_Label" />
+                                            <Description resid="Control_SuperTip_Desc" />
+                                        </Supertip>
+                                        <Icon>
+                                            <bt:Image size="16" resid="icon1_16x16" />
+                                            <bt:Image size="32" resid="icon1_32x32" />
+                                            <bt:Image size="80" resid="icon1_80x80" />
+                                        </Icon>
+                                        <Action xsi:type="ExecuteFunction">
+                                            <FunctionName>insertImage</FunctionName>
+                                        </Action>
+                                    </Control>				    
                                 </Group>
                             </OfficeTab>
                         </ExtensionPoint>
