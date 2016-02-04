@@ -2,9 +2,6 @@
  * Copyright (c) Microsoft. All rights reserved. Licensed under the MIT license.
  * See LICENSE in the project root for license information.
  */
-// declare var Office: any;
-// declare var OfficeExtension: any;
-// declare var Word: any;
 
 class App {
 
@@ -30,7 +27,7 @@ class App {
 
                 } else {
                     // Just letting you know that this code will not work with your version of Word.
-                    console.log('This add-in requires Word 2016 or greater. Check your version of Word and the requirement set version.');
+                    console.log('This add-in requires the WordAPI 1.2 requirement set or greater. Check your version of Word and the requirement set version.');
                 }
             });
         };
@@ -103,7 +100,7 @@ class App {
 
     /**
     * Changes the canvas size according to the window width and the image aspect ratio. 
-    */    
+    */
     resizeCanvas(): void {
     
         // Canvas must fit width of add-in.
@@ -171,7 +168,7 @@ class App {
         Word.run((context) => {
 
             // Create a proxy object for the range that is assumed to contain an image.
-            var imageRange = context.document.getSelection() as Word.Range;
+            var imageRange = context.document.getSelection();
 
             // Load the selected range.
             context.load(imageRange, 'inlinePictures');
@@ -228,7 +225,7 @@ class App {
             Word.run((context) => {
 
                 // Create a proxy object for the range at the current selection.
-                var imageRange = context.document.getSelection() as Word.Range;
+                var imageRange = context.document.getSelection();
 
                 // Load the selected range.
                 context.load(imageRange, 'text');
@@ -239,7 +236,7 @@ class App {
                     .then(() => {
 
                         // Queue a command to insert the image into the document.
-                        var insertedImage = imageRange.insertInlinePictureFromBase64(base64ImgString, Word.InsertLocation.replace) as Word.InlinePicture;
+                        var insertedImage = imageRange.insertInlinePictureFromBase64(base64ImgString, Word.InsertLocation.replace);
 
                         // Queue a command to navigate the UI to the insert picture.
                         insertedImage.select();

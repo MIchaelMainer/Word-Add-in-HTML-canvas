@@ -2,9 +2,6 @@
  * Copyright (c) Microsoft. All rights reserved. Licensed under the MIT license.
  * See LICENSE in the project root for license information.
  */
-// declare var Office: any;
-// declare var OfficeExtension: any;
-// declare var Word: any;
 var App = (function () {
     function App() {
         var _this = this;
@@ -29,7 +26,7 @@ var App = (function () {
                 }
                 else {
                     // Just letting you know that this code will not work with your version of Word.
-                    console.log('This add-in requires Word 2016 or greater. Check your version of Word and the requirement set version.');
+                    console.log('This add-in requires the WordAPI 1.2 requirement set or greater. Check your version of Word and the requirement set version.');
                 }
             });
         };
