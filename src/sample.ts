@@ -100,7 +100,7 @@ class App {
 
     /**
     * Changes the canvas size according to the window width and the image aspect ratio. 
-    */    
+    */
     resizeCanvas(): void {
     
         // Canvas must fit width of add-in.

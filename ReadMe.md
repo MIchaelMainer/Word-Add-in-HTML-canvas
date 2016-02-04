@@ -28,9 +28,14 @@ TODO: test on a Mac
 ## Configure the add-in and Word
 
 1. Unzip and run this [registry key](https://github.com/OfficeDev/Office-Add-in-Commands-Samples/raw/master/Tools/AddInCommandsUndark/EnableAppCmdXLWD.zip) to activate the add-in commands feature.
-2. Install the Typescript definitions by running ```tsd install``` in the project's root directory at the command line.
+2. Install the Typescript definitions by running ```tsd install``` in the project's root directory at the command line. Note that the TypeScript definitions are out of date and will cause errors. You'll need to fake the missing definitions until the official definitions are updated on DefinatelyTyped.
 3. Install the project dependencies by running ```npm install``` in the project's root directory. 
-4.  
+4. Copy the Fabric and JQuery files by running ```gulp copy:libs```.
+5. Run the default gulp task by running ```gulp``` from the project's root directory.
+6. Update the manifest file with the address of add-in. The default is https://localhost:8085. Place the manifest file in a shared folder.
+7. Update Word to point at the shared folder.
+8. Turn on Fiddler or install certificates.
+9. Load add-in.
 
 
 
@@ -39,19 +44,12 @@ MUST have the reg key noted here : https://github.com/OfficeDev/Office-Add-in-Co
 TODO: note that add-in commands won't work on the Mac or iPad.
 TODO: Create my own map.
 
-
-tsd install - problem here is that the definitions are  out of date -- will cause issues. 
-npm install
-gulp copy:libs
-gulp
-
-
 For Mac (note that the add-in commands won't work -- update the manifest to point at the )
 1.	Create a folder called “wef” in Users/<username>/Library/Containers/com.microsoft.word/Data/Documents/
 2.	Put the developer manifest in the wef folder (Users/<username>/Library/Containers/com.microsoft.word/Data/Documents/wef)
-3.	Open word application on Mac and click on inset->”my add-ins” drop down.
+3.	Open word application on Mac and click on insert->”my add-ins” drop down.
 
-
+Add-in commands require HTTPS 
 The gulp-connect server has expired certificates so to run this yourself, you'll need to either: generate your own certificates, or run a proxy like Fiddler that provides certificates. 
 
 OpenSSL
