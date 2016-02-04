@@ -29,6 +29,7 @@
                         <!-- Identifies the html file the contains a script reference to a function that an add-in command will use. -->
                         <FunctionFile resid="InsertImageMenuUrl"/>
 
+                    
                         <!-- PrimaryCommandSurface declares that this add-in 
                              command will be used from the ribbon in Office. -->
                         <ExtensionPoint xsi:type="PrimaryCommandSurface">
@@ -83,7 +84,7 @@
                                     <!-- Declares what the button does. This button will run a function named 
                                     writeText. writeText must be in the global execution context of the functionfile. -->                                    
                                     <Action xsi:type="ExecuteFunction">
-                                        <FunctionName>writeText</FunctionName>
+                                        <FunctionName>insertImage</FunctionName>
                                     </Action>
                                 </Control>
                             </OfficeMenu>

@@ -15,6 +15,6 @@
         "serverkey": "server.key",
         "servercert": "server.crt",
         "cacert": "ca.crt",
-        "passphrase": "moosh"
+        "passphrase": "ENTER_PASSPHRASE_HERE"
     }
 }

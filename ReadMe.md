@@ -40,7 +40,7 @@ TODO: note that add-in commands won't work on the Mac or iPad.
 TODO: Create my own map.
 
 
-tsd install
+tsd install - problem here is that the definitions are  out of date -- will cause issues. 
 npm install
 gulp copy:libs
 gulp
@@ -50,6 +50,9 @@ For Mac (note that the add-in commands won't work -- update the manifest to poin
 1.	Create a folder called “wef” in Users/<username>/Library/Containers/com.microsoft.word/Data/Documents/
 2.	Put the developer manifest in the wef folder (Users/<username>/Library/Containers/com.microsoft.word/Data/Documents/wef)
 3.	Open word application on Mac and click on inset->”my add-ins” drop down.
+
+
+The gulp-connect server has expired certificates so to run this yourself, you'll need to either: generate your own certificates, or run a proxy like Fiddler that provides certificates. 
 
 OpenSSL
 
