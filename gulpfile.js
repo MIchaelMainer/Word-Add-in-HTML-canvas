@@ -136,12 +136,38 @@ gulp.task('default', ['compile', 'watch'], function () {
         host: config.server.host,
         port: config.server.port,
         https: {
-            key: fs.readFileSync(config.server.serverkey),
-            cert: fs.readFileSync(config.server.servercert),
-            ca: fs.readFileSync(config.server.cacert),
+            // key: fs.readFileSync(config.server.serverkey),
+            // cert: fs.readFileSync(config.server.servercert),
+            // ca: fs.readFileSync(config.server.cacert),
+            key: fs.readFileSync(readCertOrCreateDummyFile(config.server.serverkey)),
+            cert: fs.readFileSync(readCertOrCreateDummyFile(config.server.servercert)),
+            ca: fs.readFileSync(readCertOrCreateDummyFile(config.server.cacert)),
             passphrase: config.server.passphrase
         },
         livereload: false,
         debug: true
     });
 });
+
+
+function readCertOrCreateDummyFile(filename) {
+    
+        // Check that a cert file exists
+        fs.access('server.key', fs.R_OK, function(err){
+    
+            // No cert file causes an error.
+            if (err) {
+                // Let's create a dummy file. You'll need to run a proxy with a cert so
+                // that this sample will run.
+                fs.writeFile(filename, '', function(rfErr){
+                    if (rfErr) {
+                        console.log('Create valid a valid certificate or run a proxy.');
+                    }
+                });
+            }
+            else {
+                return filename;
+            }
+        });
+    
+}
