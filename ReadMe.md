@@ -15,15 +15,30 @@ TODO: Add GIF that shows the sample running.
 
 ## Prerequisites
 
-To use the Image callouts Word ad-in sample, the following are required.
+To use the Image callouts Word add-in sample, the following are required.
 
 * [node.js](https://nodejs.org) to serve up the docx files.
 * [npm](https://www.npmjs.com/) to install the dependencies.
 * Word 2016 16.0.6326.0000 or higher, or any client that supports the Word Javascript API. This sample does a requirement check to see if it is running in a supported host for the JavaScript APIs. 
+* Clone this repo to your local computer.
 
 > Note: Word for Mac 2016 does not support add-in commands at this time. This sample can run on the Mac without the add-in commands. 
 
-TODO: test on a Mac
+Since add-in commands that run scripts don't provide a UI to accept invalid certificates, you'll need to either run a proxy that provides its on certificate (like Fiddler), or setup your own certificates. If you want to use your own certificates, then OpenSSL is required.  
+
+## Create developer certificates
+
+You'll probably want to create your own certificates to run this sample on your development computer.
+
+### Setup on a Windows computer
+
+1. Follow the instructions on [Didier Steven's blog](http://blog.didierstevens.com/2015/03/30/howto-make-your-own-cert-with-openssl-on-windows/) for creating a certificate authority and server certificate. We suggest that you give the certificate authority certificate a *Common Name* of *localhost-ca*. The server certificate must have a *Common Name* of *localhost*.
+2. Move the certificates you created to the root of this project.
+3. Update gulpfile.config.json with the passphrase for the certificate. 
+
+### Setup on a Mac
+
+TODO
 
 ## Configure the add-in and Word
 
@@ -35,7 +50,9 @@ TODO: test on a Mac
 6. Run the default gulp task by running ```gulp``` from the project's root directory. If the TypeScript definitions aren't updated, you'll get an error here. 
 7. Create a network share, or [share a folder to the network](https://technet.microsoft.com/en-us/library/cc770880.aspx) and place the [manifest-word-add-in-canvas.xml](manifest-word-add-in-canvas.xml) manifest file in it.
 
-You've deployed this sample add-in at this point. Now you need to let Word 2016 for Windows know where to find the add-in.
+You've deployed this sample add-in at this point. Now you need to let Word know where to find the add-in.
+
+### Word 2016 for Windows setup
 
 1. Launch Word and open a document.
 2. Choose the **File** tab, and then choose **Options**.
@@ -45,6 +62,7 @@ You've deployed this sample add-in at this point. Now you need to let Word 2016 
 6. Select the **Show in Menu** check box, and then choose **OK**.
 7. A message is displayed to inform you that your settings will be applied the next time you start Office. Close and restart Word. 
 
+### Word 2016 for Mac setup
 
 ## Run the add-in in Word 2016 for Windows
 
@@ -131,4 +149,4 @@ set OPENSSL_CONF=C:\OpenSSL-Win32\bin\openssl.cfg
 
     ```pkcs12 -export -out server.p12 -inkey server.key -in server.crt -chain -CAfile ca.crt```
 
-8) Install server.crt into the Trusted Root Certificate Authority store.
+8) Install server.crt into the Trusted Root Certificate Authority store. (Confirm this).

@@ -12,9 +12,9 @@
         "host": "localhost",
         "port": 8085,
         "fallback": "www\\index.html",
-        "serverkey": "server.key",
-        "servercert": "server.crt",
+        "serverkey": "ia.key",
+        "servercert": "ia.crt",
         "cacert": "ca.crt",
-        "passphrase": "ENTER_PASSPHRASE_HERE"
+        "passphrase": ""
     }
 }
