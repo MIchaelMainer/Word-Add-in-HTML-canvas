@@ -35,7 +35,7 @@ TODO: test on a Mac
 6. Run the default gulp task by running ```gulp``` from the project's root directory. If the TypeScript definitions aren't updated, you'll get an error here. 
 7. Create a network share, or [share a folder to the network](https://technet.microsoft.com/en-us/library/cc770880.aspx) and place the [manifest-word-add-in-canvas.xml](manifest-word-add-in-canvas.xml) manifest file in it.
 
-You've deployed this sample add-in at this point. Now you need to let Word know where to find the add-in.
+You've deployed this sample add-in at this point. Now you need to let Word 2016 for Windows know where to find the add-in.
 
 1. Launch Word and open a document.
 2. Choose the **File** tab, and then choose **Options**.
@@ -46,7 +46,7 @@ You've deployed this sample add-in at this point. Now you need to let Word know 
 7. A message is displayed to inform you that your settings will be applied the next time you start Office. Close and restart Word. 
 
 
-## Run the add-in
+## Run the add-in in Word 2016 for Windows
 
 1. Open a Word document. 
 2. On the **Insert** tab in Word 2016, choose **My Add-ins**. 
@@ -54,13 +54,13 @@ You've deployed this sample add-in at this point. Now you need to let Word know 
 4. Choose **Image callout add-in**, and then select **Insert**.
 5. If add-in commands are suported by your version of Word, the UI will inform you that the add-in was loaded. You can use  the Developer tab to load the add-in in the UI and to insert an image into the document. You can also use the right-click context menu to insert an image into the document. 
 6. If add-in commands are not supported by your version of Word, the add-in will load in a task pane. You'll need to insert a picture into the Word document to use the functionality of the add-in.
-7. Select an image in the Word document, and load it into the taskpane by selecting *Load image from doc*. You can now insert callouts into the image. Select *Insert image into doc* to place the updated image into the Word doc. The add-in wil generate placeholder descriptions for each of the callouts.   
+7. Select an image in the Word document, and load it into the taskpane by selecting *Load image from doc*. You can now insert callouts into the image. Select *Insert image into doc* to place the updated image into the Word doc. The add-in wil generate placeholder descriptions for each of the callouts. 
 
 ## FAQ
 
 * Will add-in commands work on Mac and iPad? No, they won't work on the Mac or iPad as of the publication of this readme.
-* Why doesn't my add-in show up in the **My Add-ins** window? You're add-in manifest may have an error. I suggest that you validate the manifest against the [manifest schema](https://github.com/OfficeDev/Office-Add-in-Commands-Samples/tree/master/Tools/XSD).
-* Why doesn't the function file get called for my add-in commands? Since the add-in commands require TLS, and there isn't a UI, you can't see whether there is a certificate issue. If you have to accept an invalid certificate in the taskpane, then the add-in command will not work.  
+* Why doesn't my add-in show up in the **My Add-ins** window? Your add-in manifest may have an error. I suggest that you validate the manifest against the [manifest schema](https://github.com/OfficeDev/Office-Add-in-Commands-Samples/tree/master/Tools/XSD).
+* Why doesn't the function file get called for my add-in commands? Add-ins commands require HTTPS. Since the add-in commands require TLS, and there isn't a UI, you can't see whether there is a certificate issue. If you have to accept an invalid certificate in the taskpane, then the add-in command will not work.  
 
 ## Questions and comments
 
