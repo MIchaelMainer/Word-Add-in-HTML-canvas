@@ -42,12 +42,12 @@ TODO
 
 ## Configure the add-in and Word
 
-1. Unzip and run this [registry key](https://github.com/OfficeDev/Office-Add-in-Commands-Samples/raw/master/Tools/AddInCommandsUndark/EnableAppCmdXLWD.zip) to activate the add-in commands feature. This is required while add-in commands are a **preview feature**.
-2. npm install tsd -g. 
-
-Install the Typescript definitions identified in tsd.json by running ```tsd install``` in the project's root directory at the command line. Note that the TypeScript definitions are out of date and will cause errors. You'll need to fake the missing definitions until the official definitions are updated on DefinatelyTyped. The definitions are in a directory called typings.
+1. (Windows only) Unzip and run this [registry key](https://github.com/OfficeDev/Office-Add-in-Commands-Samples/raw/master/Tools/AddInCommandsUndark/EnableAppCmdXLWD.zip) to activate the add-in commands feature. This is required while add-in commands are a **preview feature**.
+2. Install the TypeScript definition manager by typing ```npm install tsd -g``` at the command line. 
+2. Install the Typescript definitions identified in tsd.json by running ```tsd install``` in the project's root directory at the command line. Note that the TypeScript definitions are out of date and will cause errors. You'll need to fake the missing definitions until the official definitions are updated on DefinatelyTyped. The definitions are in a directory called typings.
 3. Install the project dependencies identified in package.json by running ```npm install``` in the project's root directory. 
-4. Copy the Fabric and JQuery files by running ```gulp copy:libs```. If you have an issue here, make sure that *%APPDATA%\npm* is in your path variable.
+4. Install gulp ```npm install -g gulp```
+4. Copy the Fabric and JQuery files by running ```gulp copy:libs```. (Windows) If you have an issue here, make sure that *%APPDATA%\npm* is in your path variable.
 5. Add-in commands require HTTPS so you'll need to create a local certificate authority cert, and a server cert and key.  Place the files server.key, server.crt, and ca.crt at the root of this application. Alternatively, you can run this sample using a proxy like Fiddler that supplies its own certificate. 
 6. Run the default gulp task by running ```gulp``` from the project's root directory. If the TypeScript definitions aren't updated, you'll get an error here. 
 7. Create a network share, or [share a folder to the network](https://technet.microsoft.com/en-us/library/cc770880.aspx) and place the [manifest-word-add-in-canvas.xml](manifest-word-add-in-canvas.xml) manifest file in it.
@@ -65,6 +65,11 @@ You've deployed this sample add-in at this point. Now you need to let Word know 
 7. A message is displayed to inform you that your settings will be applied the next time you start Office. Close and restart Word. 
 
 ### Word 2016 for Mac setup
+
+1. Create a folder called “wef” in Users/<username>/Library/Containers/com.microsoft.word/Data/Documents/
+2. Put the developer manifest in the wef folder (Users/<username>/Library/Containers/com.microsoft.word/Data/Documents/wef)
+3. Open word application on Mac and click on insert->”my add-ins” drop down.
+
 
 ## Run the add-in in Word 2016 for Windows
 
