@@ -12,10 +12,6 @@
         "rootDir": "./src",
         "outDir": "./www"
     },
-    "exclude": [
-        "node_modules",
-        "bower_components"
-    ],
     "filesGlob": [
         "./src/**/*.ts",
         "./typings/tsd.d.ts"

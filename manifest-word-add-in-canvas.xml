@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
     <OfficeApp xmlns="http://schemas.microsoft.com/office/appforoffice/1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bt="http://schemas.microsoft.com/office/officeappbasictypes/1.0" xmlns:ov="http://schemas.microsoft.com/office/taskpaneappversionoverrides" xsi:type="TaskPaneApp">
         <!--Make sure your add-in guid is unique. Your add-in may not show up in the UI if this is not unique. -->
-        <Id>20aed075-f6ac-4d05-97cc-e97ecc59d2f7</Id>
+        <Id>20aed075-f6ac-4d05-97cc-e97ecc58d2f7</Id>
         <Version>1.0</Version>
         <ProviderName>Microsoft</ProviderName>
         <DefaultLocale>en-us</DefaultLocale>
         <!--This is the name shown in the Word UI.-->
-        <DisplayName DefaultValue="(local) Image callout add-in" />
+        <DisplayName DefaultValue="(local - express) Image callout add-in" />
         <Description DefaultValue="See how you can use the Canvas API with Word add-ins." />
         <!--Icon for your add-in. Used on installation screens and the add-ins dialog -->
-        <IconUrl DefaultValue="https://localhost:8085/media/groupIcon1_default32.png" />
+        <IconUrl DefaultValue="https://localhost:8443/media/groupIcon1_default32.png" />
         <Hosts>
             <Host Name="Document" />
         </Hosts>
         <DefaultSettings>
-            <SourceLocation DefaultValue="https://localhost:8085" />
+            <SourceLocation DefaultValue="https://localhost:8443" />
         </DefaultSettings>
         <Permissions>ReadWriteDocument</Permissions>
 
@@ -114,16 +114,16 @@
             <Resources>
                 <bt:Images>
                     <!-- Image resource URLs. These must be located at HTTPS endpoints.-->
-                    <bt:Image id="groupIcon1_16x16" DefaultValue="https://localhost:8085/media/groupIcon1_default16.png"></bt:Image>
-                    <bt:Image id="groupIcon1_32x32" DefaultValue="https://localhost:8085/media/groupIcon1_default32.png"></bt:Image>
-                    <bt:Image id="groupIcon1_80x80" DefaultValue="https://localhost:8085/media/groupIcon1_default80.png"></bt:Image>
-                    <bt:Image id="icon1_16x16" DefaultValue="https://localhost:8085/media/icon_default16.png"></bt:Image>
-                    <bt:Image id="icon1_32x32" DefaultValue="https://localhost:8085/media/icon_default32.png"></bt:Image>
-                    <bt:Image id="icon1_80x80" DefaultValue="https://localhost:8085/media/icon_default80.png"></bt:Image>
+                    <bt:Image id="groupIcon1_16x16" DefaultValue="https://localhost:8443/media/groupIcon1_default16.png"></bt:Image>
+                    <bt:Image id="groupIcon1_32x32" DefaultValue="https://localhost:8443/media/groupIcon1_default32.png"></bt:Image>
+                    <bt:Image id="groupIcon1_80x80" DefaultValue="https://localhost:8443/media/groupIcon1_default80.png"></bt:Image>
+                    <bt:Image id="icon1_16x16" DefaultValue="https://localhost:8443/media/icon_default16.png"></bt:Image>
+                    <bt:Image id="icon1_32x32" DefaultValue="https://localhost:8443/media/icon_default32.png"></bt:Image>
+                    <bt:Image id="icon1_80x80" DefaultValue="https://localhost:8443/media/icon_default80.png"></bt:Image>
                 </bt:Images>
                 <bt:Urls>
-                    <bt:Url id="Sample_Url" DefaultValue="https://localhost:8085"></bt:Url>
-                    <bt:Url id="InsertImageMenuUrl" DefaultValue="https://localhost:8085/insertimage.html"></bt:Url>
+                    <bt:Url id="Sample_Url" DefaultValue="https://localhost:8443"></bt:Url>
+                    <bt:Url id="InsertImageMenuUrl" DefaultValue="https://localhost:8443/insertimage.html"></bt:Url>
                 </bt:Urls>
                 <!-- Be careful about mixing up what can be a short and a long string. 
                      A common issue with add-in commands is mixing short and long strings.

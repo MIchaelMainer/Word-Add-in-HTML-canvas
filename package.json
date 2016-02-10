@@ -2,13 +2,14 @@
   "name": "word-add-in-canvas",
   "description": "Learn how to use canvas with a Word add-in.",
   "license": "MIT",
-  "main": "app/server.js",
+  "main": "www/server.js",
   "version": "1.0.0",
   "author": {
     "name": "Michael Mainer"
   },
   "private": true,
   "dependencies": {
+    "express": "^4.13.4",
     "jquery": "^2.2.0",
     "office-ui-fabric": "^1.2.0"
   },
