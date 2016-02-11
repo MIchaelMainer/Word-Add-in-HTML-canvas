@@ -17,7 +17,6 @@ TODO: Add GIF that shows the sample running.
 
 To use the Image callouts Word add-in sample, the following are required.
 
-* [node.js](https://nodejs.org) to serve up the docx files.
 * [npm](https://www.npmjs.com/) to install the dependencies.
 * Word 2016 16.0.6326.0000 or higher, or any client that supports the Word Javascript API. This sample does a requirement check to see if it is running in a supported host for the JavaScript APIs. 
 * Clone this repo to your local computer.

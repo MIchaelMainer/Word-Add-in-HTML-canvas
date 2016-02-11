@@ -60,4 +60,6 @@ bin/**
 .vs/
 
 # Ignore the cert and key file
-
+*.crt
+*.key
+*.csr
