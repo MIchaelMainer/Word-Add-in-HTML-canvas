@@ -13,6 +13,8 @@ This Word add-in sample shows you how to:
 
 TODO: Add GIF that shows the sample running. 
 
+If you just want to see this in action, skip to [Word 2016 for Windows setup](#Word-2016-for-Windows-setup). Open the [manifest](#manifest-word-add-in-canvas) and change all occurrences of ```localhost:8085``` to ```callouts.azurewebsites.net```.
+
 ## Prerequisites
 
 To use the Image callouts Word add-in sample, the following are required.
@@ -23,8 +25,6 @@ To use the Image callouts Word add-in sample, the following are required.
 * OpenSSL. If you have Git Bash installed, it is available from the Bash shell. Just type in OpenSSL from the Bash shell.
 
 > Note: Word for Mac 2016 does not support add-in commands at this time. This sample can run on the Mac without the add-in commands. 
-
-Since add-in commands that run scripts don't provide a UI to accept invalid certificates, you'll need to either run a proxy that provides its on certificate (like Fiddler), or setup your own certificates. If you want to use your own certificates, then OpenSSL is required.  
 
 ## Create developer certificates
 
@@ -46,19 +46,19 @@ You'll probably want to create your own certificates to run this sample on your 
 4. Copy the Fabric and JQuery files by running ```gulp copy:libs```. (Windows) If you have an issue here, make sure that *%APPDATA%\npm* is in your path variable.
 5. Add-in commands require HTTPS so you'll need to create a local certificate authority cert, and a server cert and key.  Place the files server.key, server.crt, and ca.crt at the root of this application. Alternatively, you can run this sample using a proxy like Fiddler that supplies its own certificate. 
 6. Run the default gulp task by running ```gulp``` from the project's root directory. If the TypeScript definitions aren't updated, you'll get an error here. 
-7. Create a network share, or [share a folder to the network](https://technet.microsoft.com/en-us/library/cc770880.aspx) and place the [manifest-word-add-in-canvas.xml](manifest-word-add-in-canvas.xml) manifest file in it.
 
 You've deployed this sample add-in at this point. Now you need to let Word know where to find the add-in.
 
 ### Word 2016 for Windows setup
 
-1. Launch Word and open a document.
-2. Choose the **File** tab, and then choose **Options**.
-3. Choose **Trust Center**, and then choose the **Trust Center Settings** button.
-4. Choose **Trusted Add-ins Catalogs**.
-5. In the **Catalog Url** box, enter the network path to the folder share that contains manifest-word-add-in-canvas.xml and then choose **Add Catalog**.
-6. Select the **Show in Menu** check box, and then choose **OK**.
-7. A message is displayed to inform you that your settings will be applied the next time you start Office. Close and restart Word. 
+1. Create a network share, or [share a folder to the network](https://technet.microsoft.com/en-us/library/cc770880.aspx) and place the [manifest-word-add-in-canvas.xml](manifest-word-add-in-canvas.xml) manifest file in it.
+2. Launch Word and open a document.
+3. Choose the **File** tab, and then choose **Options**.
+4. Choose **Trust Center**, and then choose the **Trust Center Settings** button.
+5. Choose **Trusted Add-ins Catalogs**.
+6. In the **Catalog Url** box, enter the network path to the folder share that contains manifest-word-add-in-canvas.xml and then choose **Add Catalog**.
+7. Select the **Show in Menu** check box, and then choose **OK**.
+8. A message is displayed to inform you that your settings will be applied the next time you start Office. Close and restart Word. 
 
 ## Run the add-in in Word 2016 for Windows
 
