@@ -34,7 +34,7 @@
                              command will be used from the ribbon in Office. -->
                         <ExtensionPoint xsi:type="PrimaryCommandSurface">
                             <!-- Add the add-in command button to the Developer tab. You can use other existing tabs, or create a custom tab. -->
-                            <OfficeTab id="TabDeveloper">
+                            <CustomTab id="CustomTabDeveloper">
                                 <!-- This declares a group of buttons in the UI. -->
                                 <Group id="Group1">
                                     <!-- All resid attributes refer to a resource; checkout the Resources element below. -->
@@ -45,6 +45,7 @@
                                         <bt:Image size="32" resid="groupIcon1_32x32" />
                                         <bt:Image size="80" resid="groupIcon1_80x80" />
                                     </Icon>
+				    <Tooltip resid="Control_SuperTip_Label" />
                                     <!-- Declares a button -->
                                     <Control xsi:type="Button" id="Canvas.Button.Tab">
                                         <Label resid="Control_Label" />
@@ -68,8 +69,8 @@
                                         <Label resid="Ctx_Control_Label" />
                                         <!--<Tooltip resid="Control_Tooltip" />-->
                                         <Supertip>
-                                            <Title resid="Control_SuperTip_Label" />
-                                            <Description resid="Control_SuperTip_Desc" />
+                                            <Title resid="Control_InsertImg_Label" />
+                                            <Description resid="Ctx_Control_SuperTip_Desc" />
                                         </Supertip>
                                         <Icon>
                                             <bt:Image size="16" resid="icon1_16x16" />
@@ -81,7 +82,10 @@
                                         </Action>
                                     </Control>				    
                                 </Group>
-                            </OfficeTab>
+				<!-- Label of your tab -->
+		                <!-- If validating with XSD it needs to be at the end, we might change this before release -->
+		                <Label resid="CalloutTabTitle" />
+                            </CustomTab>
                         </ExtensionPoint>
                         <!-- Declares a context menu that will run a script. -->
                         <ExtensionPoint xsi:type="ContextMenu">
@@ -122,18 +126,25 @@
                     <bt:Image id="icon1_80x80" DefaultValue="https://localhost:8085/media/icon_default80.png"></bt:Image>
                 </bt:Images>
                 <bt:Urls>
-                    <bt:Url id="Sample_Url" DefaultValue="https://localhost:8085"></bt:Url>
-                    <bt:Url id="InsertImageMenuUrl" DefaultValue="https://localhost:8085/insertimage.html"></bt:Url>
+                    <bt:Url id="Sample_Url" DefaultValue="https://localhost:8085">
+                        <bt:Override Locale="ja-jp" Value="https://localhost:8085" />
+                    </bt:Url>
+                    <bt:Url id="InsertImageMenuUrl" DefaultValue="https://localhost:8085/insertimage.html">
+                       
+                    </bt:Url>
                 </bt:Urls>
                 <!-- Be careful about mixing up what can be a short and a long string. 
                      A common issue with add-in commands is mixing short and long strings.
                      Read the documentation to make sure you use the correct string type.
                      https://msdn.microsoft.com/EN-US/library/office/mt621545.aspx -->
                 <bt:ShortStrings>
+		    <bt:String id="CalloutTabTitle" DefaultValue="Callout add-in">
+                        <bt:Override Locale="ja-jp" Value="キャンバスアドイングループタイトル" />
+                    </bt:String>
                     <bt:String id="GroupTitle" DefaultValue="Canvas add-in commands">
                         <bt:Override Locale="ja-jp" Value="キャンバスアドイングループタイトル" />
                     </bt:String>
-                    <bt:String id="Control_Label" DefaultValue="Callout add-in">
+                    <bt:String id="Control_Label" DefaultValue="Launch taskpane">
                         <bt:Override Locale="ja-jp" Value="吹き出しは、アドイン" />
                     </bt:String>
                     <bt:String id="Ctx_Control_Label" DefaultValue="Insert an image">
@@ -142,22 +153,24 @@
                     <bt:String id="Control_Tooltip" DefaultValue="Canvas add-in">
                         <bt:Override Locale="ja-jp" Value="キャンバスは、アドオン立方インチ" />
                     </bt:String>
-                    <bt:String id="Control_SuperTip_Label" DefaultValue="Callout add-in supertip">
+                    <bt:String id="Control_SuperTip_Label" DefaultValue="Callout add-in">
                         <bt:Override Locale="ja-jp" Value="吹き出しは、アドインsupertip" />
                     </bt:String>
+                    <bt:String id="Control_InsertImg_Label" DefaultValue="Insert image from function file">
+                        <bt:Override Locale="ja-jp" Value="吹き出しは、アドインsupertip" />
+                    </bt:String>		    
                     <bt:String id="Ctx_Control_SuperTip_Label" DefaultValue="Callout add-in supertip">
                         <bt:Override Locale="ja-jp" Value="吹き出しは、アドインsupertip" />
-                    </bt:String>                    
+                    </bt:String>
                 </bt:ShortStrings>
                 <bt:LongStrings>
                     <bt:String id="Group_ToolTip_Desc" DefaultValue="This add-in demonstrates how you can create an image editing add-in that uses the HTML Canvas API.">
                         <bt:Override Locale="ja-jp" Value="このアドインを使用すると、画像編集アドインそれをHTMLキャンバスAPIを使用して作成する方法を示します。" />
                     </bt:String>
-                    <bt:String id="Control_SuperTip_Desc" DefaultValue="Open the canvas add-in in the task pane.">
+                    <bt:String id="Control_SuperTip_Desc" DefaultValue="Open the callout add-in in the task pane.">
                         <bt:Override Locale="ja-jp" Value="キャンバスアドイン作業ウィンドウを開きます。" />
                     </bt:String>
-                    <bt:String id="Ctx_Control_SuperTip_Desc" DefaultValue="Inserts an image with a FunctionFile.">
-                        <bt:Override Locale="ja-jp" Value="FunctionFileで画像を挿入します。" />
+                    <bt:String id="Ctx_Control_SuperTip_Desc" DefaultValue="Inserts an image loaded into the DOM from the FunctionFile.">
                     </bt:String>                    
                 </bt:LongStrings>
             </Resources>
