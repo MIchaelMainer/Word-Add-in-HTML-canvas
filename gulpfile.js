@@ -141,7 +141,7 @@ gulp.task('default', ['compile', 'watch'], function () {
             ca: fs.readFileSync(config.server.cacert),
             passphrase: config.server.passphrase
         },
-        livereload: false,
+        livereload: true,
         debug: true
     });
 });

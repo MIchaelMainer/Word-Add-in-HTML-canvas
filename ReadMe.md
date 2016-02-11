@@ -36,17 +36,13 @@ You'll probably want to create your own certificates to run this sample on your 
 2. Move the certificates you created to the root of this project.
 3. Update gulpfile.config.json with the passphrase for the certificate. 
 
-### Setup on a Mac
-
-TODO
-
 ## Configure the add-in and Word
 
 1. (Windows only) Unzip and run this [registry key](https://github.com/OfficeDev/Office-Add-in-Commands-Samples/raw/master/Tools/AddInCommandsUndark/EnableAppCmdXLWD.zip) to activate the add-in commands feature. This is required while add-in commands are a **preview feature**.
-2. Install the TypeScript definition manager by typing ```npm install tsd -g``` at the command line. 
-2. Install the Typescript definitions identified in tsd.json by running ```tsd install``` in the project's root directory at the command line. Note that the TypeScript definitions are out of date and will cause errors. You'll need to fake the missing definitions until the official definitions are updated on DefinatelyTyped. The definitions are in a directory called typings.
+2. Install the TypeScript definition manager by typing ```npm install typings -g``` at the command line. 
+2. Install the Typescript definitions identified in tsd.json by running ```typings install``` in the project's root directory at the command line. Note that the TypeScript definitions are out of date and will cause errors. You'll need to fake the missing definitions until the official definitions are updated on DefinatelyTyped. The definitions are in a directory called typings.
 3. Install the project dependencies identified in package.json by running ```npm install``` in the project's root directory. 
-4. Install gulp ```npm install -g gulp```
+4. Install gulp ```npm install -g gulp```.
 4. Copy the Fabric and JQuery files by running ```gulp copy:libs```. (Windows) If you have an issue here, make sure that *%APPDATA%\npm* is in your path variable.
 5. Add-in commands require HTTPS so you'll need to create a local certificate authority cert, and a server cert and key.  Place the files server.key, server.crt, and ca.crt at the root of this application. Alternatively, you can run this sample using a proxy like Fiddler that supplies its own certificate. 
 6. Run the default gulp task by running ```gulp``` from the project's root directory. If the TypeScript definitions aren't updated, you'll get an error here. 
@@ -63,13 +59,6 @@ You've deployed this sample add-in at this point. Now you need to let Word know 
 5. In the **Catalog Url** box, enter the network path to the folder share that contains manifest-word-add-in-canvas.xml and then choose **Add Catalog**.
 6. Select the **Show in Menu** check box, and then choose **OK**.
 7. A message is displayed to inform you that your settings will be applied the next time you start Office. Close and restart Word. 
-
-### Word 2016 for Mac setup
-
-1. Create a folder called “wef” in Users/<username>/Library/Containers/com.microsoft.word/Data/Documents/
-2. Put the developer manifest in the wef folder (Users/<username>/Library/Containers/com.microsoft.word/Data/Documents/wef)
-3. Open word application on Mac and click on insert->”my add-ins” drop down.
-
 
 ## Run the add-in in Word 2016 for Windows
 
@@ -106,54 +95,3 @@ Here are more resources to help you create Word Javascript API based add-ins:
 
 ## Copyright
 Copyright (c) 2016 Microsoft. All rights reserved.
-
-
-
-
-STUFF TO ADDRESS
-
-For Mac (note that the add-in commands won't work -- update the manifest to point at the )
-1.	Create a folder called “wef” in Users/<username>/Library/Containers/com.microsoft.word/Data/Documents/
-2.	Put the developer manifest in the wef folder (Users/<username>/Library/Containers/com.microsoft.word/Data/Documents/wef)
-3.	Open word application on Mac and click on insert->”my add-ins” drop down.
-
-Add-in commands require HTTPS 
-The gulp-connect server has expired certificates so to run this yourself, you'll need to either: generate your own certificates, or run a proxy like Fiddler that provides certificates. 
-
-OpenSSL
-
-Install OpenSSL if you don't already have it.
-https://wiki.openssl.org/index.php/Binaries
-
-http://blog.didierstevens.com/2015/03/30/howto-make-your-own-cert-with-openssl-on-windows/
-
-1) Open cmd window, Set these environment variables
-set RANDFILE=c:\demo\.rnd
-set OPENSSL_CONF=C:\OpenSSL-Win32\bin\openssl.cfg
-
-2) Start OpenSSL by typing 
-    ```c:\OpenSSL-Win32\bin\openssl.exe```
-
-3) Create RSA key for the root CA and store it in ca.key:
-    ```genrsa -out ca.key 4096```
-
-4) create our self-signed root CA certificate ca.crt; you’ll need to provide an identity for your root CA:
-    ```req -new -x509 -days 1826 -key ca.key -out ca.crt```
-    
-5) create our subordinate CA that will be used for the actual signing. First, generate the key:
-
-    ```genrsa -out server.key 4096```
-    
-6) Then, request a certificate for this subordinate CA:
-
-    ``` req -new -key server.key -out server.csr```
-    
-7) process the request for the subordinate CA certificate and get it signed by the root CA.
-
-    ``` x509 -req -days 730 -in server.csr -CA ca.crt -CAkey ca.key -set_serial 01 -out server.crt```
-
-7.5) To use this subordinate CA key for Authenticode signatures with Microsoft’s signtool, you’ll have to package the keys and certs in a PKCS12 file:    
-
-    ```pkcs12 -export -out server.p12 -inkey server.key -in server.crt -chain -CAfile ca.crt```
-
-8) Install server.crt into the Trusted Root Certificate Authority store. (Confirm this).
