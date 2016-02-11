@@ -8,7 +8,7 @@ This Word add-in sample shows you how to:
 1. Create a Word add-in with Typescript.
 2. Load images from Word into the add-in.
 3. Edit images in the add-in by using the HTML canvas API and insert the images into a Word document.
-4. Implement add-in commands that both launch an add-in from the ribbon and run a script from a context menu.
+4. Implement add-in commands that both launch an add-in from the ribbon and run a script from both the ribbon and a context menu.
 5. Use the Office UI Fabric to create a seamless Word user experience.
 
 TODO: Add GIF that shows the sample running. 
@@ -20,6 +20,7 @@ To use the Image callouts Word add-in sample, the following are required.
 * [npm](https://www.npmjs.com/) to install the dependencies.
 * Word 2016 16.0.6326.0000 or higher, or any client that supports the Word Javascript API. This sample does a requirement check to see if it is running in a supported host for the JavaScript APIs. 
 * Clone this repo to your local computer.
+* OpenSSL. If you have Git Bash installed, it is available from the Bash shell. Just type in OpenSSL from the Bash shell.
 
 > Note: Word for Mac 2016 does not support add-in commands at this time. This sample can run on the Mac without the add-in commands. 
 
@@ -33,7 +34,7 @@ You'll probably want to create your own certificates to run this sample on your 
 
 1. Follow the instructions on [Didier Steven's blog](http://blog.didierstevens.com/2015/03/30/howto-make-your-own-cert-with-openssl-on-windows/) for creating a certificate authority and server certificate. We suggest that you give the certificate authority certificate a *Common Name* of *localhost-ca*. The server certificate must have a *Common Name* of *localhost*.
 2. Move the certificates you created to the root of this project.
-3. Update gulpfile.config.json with the passphrase for the certificate. 
+3. Install ca.crt into the Trusted Root Certification Authorities store.
 
 ## Configure the add-in and Word
 
