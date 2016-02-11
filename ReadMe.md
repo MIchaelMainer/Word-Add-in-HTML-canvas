@@ -13,7 +13,7 @@ This Word add-in sample shows you how to:
 
 TODO: Add GIF that shows the sample running. 
 
-If you just want to see this in action, skip to [Word 2016 for Windows setup](#Word-2016-for-Windows-setup). Open the [manifest](#manifest-word-add-in-canvas) and change all occurrences of ```localhost:8085``` to ```callouts.azurewebsites.net```.
+If you just want to see this in action, skip to [Word 2016 for Windows setup](#word-2016-for-windows-setup). Open the [manifest](#manifest-word-add-in-canvas) and change all occurrences of ```localhost:8085``` to ```callouts.azurewebsites.net```.
 
 ## Prerequisites
 
