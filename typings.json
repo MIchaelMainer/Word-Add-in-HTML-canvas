@@ -1,7 +1,9 @@
 {
   "name": "word-add-in-canvas",
   "ambientDependencies": {
+    "express": "github:DefinitelyTyped/DefinitelyTyped/express/express.d.ts#bc92442c075929849ec41d28ab618892ba493504",
     "jquery": "github:DefinitelyTyped/DefinitelyTyped/jquery/jquery.d.ts#d1f6bde13f2209be42e86c3686761e8bfcbb50a5",
+    "node": "github:DefinitelyTyped/DefinitelyTyped/node/node.d.ts#aee0039a2d6686ec78352125010ebb38a7a7d743",
     "office-js": "github:DefinitelyTyped/DefinitelyTyped/office-js/office-js.d.ts#2e7a477ac2b6471055aa6e0e56b333e8f327d6b7"
   }
 }
