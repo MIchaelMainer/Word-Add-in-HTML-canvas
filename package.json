@@ -2,7 +2,7 @@
   "name": "word-add-in-canvas",
   "description": "Learn how to use canvas with a Word add-in.",
   "license": "MIT",
-  "main": "app/server.js",
+  "main": "www/index.html",
   "version": "1.0.0",
   "author": {
     "name": "Michael Mainer"
@@ -24,6 +24,7 @@
     "gulp-typescript": "^2.10.0",
     "merge2": "^0.3.6",
     "tsconfig-glob": "^0.3.3"
+    
   },
   "overrides": {
     "jquery": "dist/jquery.js",
